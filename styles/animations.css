@@ -9,3 +9,98 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+@keyframes scale-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes sparks-animation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.heart-icon {
+  transform-origin: center;
+}
+
+.heart-icon .heart-outline {
+  fill: var(--heart-contour-color);
+  transition: fill 0.1s linear;
+}
+
+.heart-icon .heart-center {
+  transition: fill 0.3s 0.03s linear;
+  fill: transparent;
+}
+
+.heart-icon .heart-fill {
+  transition: fill 0.3s linear;
+  fill: transparent;
+}
+
+.heart-icon .heart-flares {
+  fill: var(--heart-animation-color);
+  opacity: 0;
+}
+
+.heart-icon:hover .heart-center {
+  transition: fill 0.3s linear;
+  fill: var(--heart-contour-color);
+}
+
+.heart-icon:hover .heart-fill {
+  transition: fill 0.3s 0.05s linear;
+  fill: var(--heart-contour-color);
+}
+
+.heart-icon:active .heart-center {
+  transition: fill 0.3s linear;
+  fill: var(--heart-contour-color);
+}
+
+.heart-icon:active .heart-fill {
+  transition: fill 0.3s 0.05s linear;
+  fill: var(--heart-animation-color);
+}
+
+.heart-icon:active .heart-outline {
+  fill: var(--heart-contour-color);
+}
+
+.heart-icon.is-liked .heart-center {
+  transition: fill 0.3s linear;
+  fill: var(--heart-animation-color);
+}
+
+.heart-icon.is-liked .heart-fill {
+  transition: fill 0.3s 0.05s linear;
+  fill: var(--heart-animation-color);
+}
+
+.heart-icon.is-liked .heart-outline {
+  transition: fill 0.3s 0.06s linear;
+  fill: var(--heart-animation-color);
+}
+
+.heart-icon.is-liked .heart-shape {
+  animation: scale-animation 0.3s ease-in 0.1s;
+  transform-origin: center;
+}
+
+.heart-icon.is-liked .heart-flares {
+  animation: sparks-animation 0.3s ease-in 0.3s;
+}
